@@ -24,7 +24,7 @@ mkdir -p ~/cugoj/deploy/$1/CUGOJ_Core/output
 cp -r ~/cugoj/output/CUGOJ_Core/* ~/cugoj/deploy/$1/CUGOJ_Core/output/
 cd ~/cugoj/deploy/$1/CUGOJ_Core/output
 
-nohup sh run.sh $1 $2 &
+nohup sh run.sh $1 $2 >/dev/null 2>&1 &
 
 sleep 5s
 
