@@ -26,6 +26,8 @@ cd ~/cugoj/deploy/$1/CUGOJ_Core/output
 
 nohup sh run.sh $1 $2 &
 
+sleep 5s
+
 echo '部署成功'
 
 
