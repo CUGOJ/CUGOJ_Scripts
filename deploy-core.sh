@@ -7,7 +7,7 @@ echo '正在构建项目'
 mkdir -p ~/cugoj/src
 mkdir -p ~/cugoj/output/CUGOJ_Core
 cd ~/cugoj/src
-git clone -b $3 https://github.com/CUGOJ/CUGOJ_Core.git
+git clone -b $3 https://ghproxy.com/https://github.com/CUGOJ/CUGOJ_Core.git
 cd CUGOJ_Core
 
 rm -rf output
