@@ -30,4 +30,6 @@ sleep 5s
 
 echo '部署成功'
 
+exit
+
 
