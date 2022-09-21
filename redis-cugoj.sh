@@ -1,15 +1,15 @@
 #! /bin/bash
+# arg1 : redis port
+# arg2 : docker pod name
 
 echo '拉取redis镜像'
 docker pull redis
 
-curPwd=$(cd $(dirname $0);pwd)
-
-echo '当前工作区'+$curPwd
+echo '当前工作区'+$(pwd)
 echo '创建工作区'
-mkdir -p ./{data,conf,run}
+mkdir -p $(pwd)/{data,conf,run}
 
-cat > ./conf/redis.conf << EOF
+cat > $(pwd)/conf/redis.conf << EOF
 bind 127.0.0.1 -::1
 protected-mode yes
 port 6379
@@ -84,6 +84,6 @@ jemalloc-bg-thread yes
 EOF
 
 echo '启动redis'
-docker run -itd --name redis -p 4001:6379 -v $curPwd/data:/data -v $curPwd/conf/redis.conf:/etc/redis/redis.conf -v $curPwd/run:/var/run redis
+docker run -itd --name $2 -p $1:6379 -v $(pwd)/data:/data -v $(pwd)/conf/redis.conf:/etc/redis/redis.conf -v $(pwd)/run:/var/run redis
 
 echo '启动成功'
